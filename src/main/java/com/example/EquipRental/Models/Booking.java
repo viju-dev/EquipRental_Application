@@ -22,13 +22,12 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-//    private categories category;
     private LocalDate date;
     private LocalTime time;
     private LocalDateTime reqDateTime;
     private double duration;
 
-    @ManyToOne
+    @ManyToOne // mapped with product
     private Product product;
 
 }

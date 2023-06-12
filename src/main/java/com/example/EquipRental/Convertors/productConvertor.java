@@ -6,7 +6,7 @@ import com.example.EquipRental.ResponseDtos.productResponseDto;
 
 public class productConvertor {
 
-    public static productResponseDto EntityToResponseDto(Product product){
+    public static productResponseDto EntityToResponseDto(Product product){ // to convert Entity to ResponseDto
 
         productResponseDto responseDto = productResponseDto.builder()
                 .name(product.getName())
@@ -18,7 +18,7 @@ public class productConvertor {
         return responseDto;
     }
 
-    public static Product EntryDtoToEntity(productEntryDto entryDto){
+    public static Product EntryDtoToEntity(productEntryDto entryDto){ // to convert EntryDto to Entity
 
         Product product = Product.builder()
                 .name(entryDto.getName())

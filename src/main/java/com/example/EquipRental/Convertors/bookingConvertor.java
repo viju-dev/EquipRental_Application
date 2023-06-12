@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 public class bookingConvertor {
 
-    public static Booking EntryDtoToEntity(bookingEntryDto entryDto){
+    public static Booking EntryDtoToEntity(bookingEntryDto entryDto){ // to convert EntryDto to Entity
 
         Booking booking =Booking.builder().date(entryDto.getDate())
                         .time(entryDto.getTime())
@@ -18,7 +18,7 @@ public class bookingConvertor {
                         .build();
         return booking;
     }
-    public static bookingResponseDto EntityToResponseDto(Booking booking){
+    public static bookingResponseDto EntityToResponseDto(Booking booking){ // to convert Entity to ResponseDto
 
         bookingResponseDto responseDto =bookingResponseDto.builder().date(booking.getDate())
                 .time(booking.getTime())

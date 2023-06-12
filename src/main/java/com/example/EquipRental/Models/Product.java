@@ -32,9 +32,7 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private categories category;
     private double price;
-//    private LocalDate date;
-//    private LocalTime time;
 
-    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "product",cascade = CascadeType.ALL) // mapped with booking
     private List<Booking> bookingList = new ArrayList<>();
 }

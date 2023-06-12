@@ -29,16 +29,16 @@ public class productController {
     @Autowired
     productService productservice;
 
-    @PostMapping("/addProduct")
+    @PostMapping("/addProduct") // to create new product
     public ResponseEntity addProduct(@RequestBody productEntryDto product) {
 
         productservice.addProduct(product);
-        return new ResponseEntity<>("added", HttpStatus.CREATED);
+        return new ResponseEntity<>("Produc added successfully...!", HttpStatus.CREATED);
     }
-    @PostMapping("/addImage")
+    @PostMapping("/addImage") // to store image
     public ResponseEntity addImage( @RequestParam("image")MultipartFile file) throws IOException {
         if (file.isEmpty()){
-
+            return new ResponseEntity<>("Image file is empty...!", HttpStatus.NO_CONTENT);
         }
         else{
             File saveFile = new ClassPathResource("static/img").getFile();
@@ -46,11 +46,11 @@ public class productController {
             Files.copy(file.getInputStream(),path, StandardCopyOption.REPLACE_EXISTING);
             System.out.println(path);
         }
-        return new ResponseEntity<>("added", HttpStatus.CREATED);
+        return new ResponseEntity<>("Image saved successfully...!", HttpStatus.ACCEPTED);
     }
 
 
-    @GetMapping("/getByCateAndDura")
+    @GetMapping("/getByCateAndDura") // to get all product by specific  category with pricing of provided duration
     public ResponseEntity getByCateAndDura(@RequestParam("category") String category, @RequestParam("duration") Double duration){
         categories cat = categories.valueOf(category);
         List<productResponseDto> list = productservice.getByCateAndDura(cat,duration);
