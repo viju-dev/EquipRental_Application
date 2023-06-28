@@ -7,7 +7,6 @@ EquipRental is a web application that allows users to rent equipment for various
 - Java
 - Spring Boot
 - MySQL
-- Google Cloud Storage
 - Postman
 
 ## Getting Started
